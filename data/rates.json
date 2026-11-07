@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-11-06T19:27:36.454Z",
-  "lastScanAt": "2026-11-06T19:27:36.454Z",
-  "lastScanOk": false,
+  "lastUpdated": "2026-11-07T09:16:07.715Z",
+  "lastScanAt": "2026-11-07T09:16:07.715Z",
+  "lastScanOk": true,
   "tariffVersion": "SRO-279-I-2026",
   "tariffEffectiveFrom": "2026-02-12",
   "static": {
@@ -87,13 +87,22 @@
   ],
   "discovery": {
     "fcaDecisions": [],
-    "qtaDecisions": [],
+    "qtaDecisions": [
+      {
+        "date": "24-09-2020",
+        "title": "Decision of the Authority in the matter of Requests filed by XWDISCOs for Periodic Adjustment in Tariff for the 2nd and 3rd Quarters of FY 2019-20",
+        "page": "https://nepra.org.pk/tariff/Distribution%20LESCO.php"
+      },
+      {
+        "date": "27-09-2019",
+        "title": "Decision of the Authority in the matter of Requests filed by XWDISCOs regarding Periodic Adjustments in Tariff for 3rd & 4th Quarters of FY 2018-2019",
+        "page": "https://nepra.org.pk/tariff/Distribution%20LESCO.php"
+      }
+    ],
     "warnings": [
-      "Fetch failed: https://nepra.org.pk/tariff/Distribution%20LESCO.php — fetch failed",
-      "Fetch failed: https://nepra.org.pk/news.php — fetch failed",
-      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20MFPA%20FOR%20THE%20MONTH%20OF%20JULY%202026%20EX-WAPDA%20DISCOS%2004-09-2026%2018342-60.PDF — fetch failed",
-      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20DISCOS%20REQUEST%20BY%20XWDISCOS%20FOR%20ADJ%202ND%20QUARTER%20OF%20CY%202026%2004-09-2026%2018362-78.PDF — fetch failed",
-      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/D-20276-94%20Decision%20FCA%20for%20XW-DISCOs%20August%202026%2007.10.2026.PDF — fetch failed"
+      "PDF fetch failed: https://nepra.org.pk/tariff/tariff/Tariff/Ex-WAPDA%20DISCOS/2023/TRF-100%20XWDISCOS%20PERIODIC%20ADJUSTMENT%20FY%202022-23%2012-04-2023%208795-97.PDF — 404 Not Found for https://nepra.org.pk/tariff/tariff/Tariff/Ex-WAPDA%20DISCOS/2023/TRF-100%20XWDISCOS%20PERIODIC%20ADJUSTMENT%20FY%202022-23%2012-04-2023%208795-97.PDF",
+      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2011/TRF-100%20XWDISCOs%20Adjustment%20January%202011%2028-02-2011%201300-1302.PDF — 404 Not Found for https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2011/TRF-100%20XWDISCOs%20Adjustment%20January%202011%2028-02-2011%201300-1302.PDF",
+      "PDF fetch failed: https://nepra.org.pk/Admission%20Notices/2023/02%20Feb/QUARTERLY%20VARIATiON%20FOR%20THE%20QUARTER%20OCTOBER%202022%20TO%20DECEMBER%202022%20UNDER%20MULTI-%20YEAR%20TARIFF%202017%20%EF%BF%BD%202023.PDF — 404 Not Found for https://nepra.org.pk/Admission%20Notices/2023/02%20Feb/QUARTERLY%20VARIATiON%20FOR%20THE%20QUARTER%20OCTOBER%202022%20TO%20DECEMBER%202022%20UNDER%20MULTI-%20YEAR%20TARIFF%202017%20%EF%BF%BD%202023.PDF"
     ]
   }
 }
