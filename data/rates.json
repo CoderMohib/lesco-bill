@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-11-06T19:27:36.454Z",
+  "lastScanAt": "2026-11-06T19:27:36.454Z",
+  "lastScanOk": false,
+  "tariffVersion": "SRO-279-I-2026",
+  "tariffEffectiveFrom": "2026-02-12",
+  "static": {
+    "gstRate": 0.18,
+    "fcRate": 0.43,
+    "fcStatus": "OFFICIAL_GUIDANCE",
+    "edRates": {
+      "domestic": 0.015,
+      "commercial": 0.015,
+      "industrial": 0.01,
+      "agriculture": 0.01
+    }
+  },
+  "billMonths": {
+    "2026-09": {
+      "label": "September 2026",
+      "qta": {
+        "rate": 0.5194,
+        "status": "NOTIFIED",
+        "note": "Q2 CY2026 QTA — S.R.O. 1501(I)/2026; Sep–Nov 2026",
+        "sourceUrl": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20DISCOS%20REQUEST%20BY%20XWDISCOS%20FOR%20ADJ%202ND%20QUARTER%20OF%20CY%202026%2004-09-2026%2018362-78.PDF"
+      },
+      "fca": {
+        "rate": 2.0581,
+        "status": "NOTIFIED",
+        "consumptionMonth": "2026-07",
+        "note": "July 2026 fuel → Sep billing; S.R.O. 1499(I)/2026",
+        "sourceUrl": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20MFPA%20FOR%20THE%20MONTH%20OF%20JULY%202026%20EX-WAPDA%20DISCOS%2004-09-2026%2018342-60.PDF"
+      }
+    },
+    "2026-10": {
+      "label": "October 2026",
+      "qta": {
+        "rate": 0.5194,
+        "status": "NOTIFIED",
+        "note": "Q2 CY2026 QTA — S.R.O. 1501(I)/2026; Sep–Nov 2026",
+        "sourceUrl": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20DISCOS%20REQUEST%20BY%20XWDISCOS%20FOR%20ADJ%202ND%20QUARTER%20OF%20CY%202026%2004-09-2026%2018362-78.PDF"
+      },
+      "fca": {
+        "rate": 1.1086,
+        "status": "NOTIFIED",
+        "consumptionMonth": "2026-08",
+        "note": "August 2026 fuel → Oct billing; S.R.O. 1754(I)/2026",
+        "sourceUrl": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/D-20276-94%20Decision%20FCA%20for%20XW-DISCOs%20August%202026%2007.10.2026.PDF"
+      }
+    },
+    "2026-11": {
+      "label": "November 2026",
+      "qta": {
+        "rate": 0.5194,
+        "status": "NOTIFIED",
+        "note": "Q2 CY2026 QTA — S.R.O. 1501(I)/2026; Sep–Nov 2026",
+        "sourceUrl": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20DISCOS%20REQUEST%20BY%20XWDISCOS%20FOR%20ADJ%202ND%20QUARTER%20OF%20CY%202026%2004-09-2026%2018362-78.PDF"
+      },
+      "fca": {
+        "rate": null,
+        "status": "NEEDS_REVIEW",
+        "consumptionMonth": "2026-09",
+        "provisionalRequest": 2.5624,
+        "decisionListedAt": "2026-11-06",
+        "note": "NEPRA listed Sep-2026 FCA Decision on 06-11-2026. Rate not auto-applied until PDF figure is extracted or entered via override.",
+        "sourceUrl": "https://nepra.org.pk/news.php"
+      }
+    }
+  },
+  "sources": [
+    {
+      "id": "nepra-lesco",
+      "url": "https://nepra.org.pk/tariff/Distribution%20LESCO.php",
+      "role": "LESCO tariff / FCA / QTA decision index"
+    },
+    {
+      "id": "nepra-news",
+      "url": "https://nepra.org.pk/news.php",
+      "role": "Latest NEPRA decisions and hearings"
+    },
+    {
+      "id": "sro-279",
+      "url": "https://nepra.org.pk/Admission%20Notices/2026/02%20Feb/Complete%20motion%20alogwith%20Annexs_260206_150050.pdf",
+      "role": "Base consumer-end tariff S.R.O. 279(I)/2026"
+    }
+  ],
+  "discovery": {
+    "fcaDecisions": [],
+    "qtaDecisions": [],
+    "warnings": [
+      "Fetch failed: https://nepra.org.pk/tariff/Distribution%20LESCO.php — fetch failed",
+      "Fetch failed: https://nepra.org.pk/news.php — fetch failed",
+      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20MFPA%20FOR%20THE%20MONTH%20OF%20JULY%202026%20EX-WAPDA%20DISCOS%2004-09-2026%2018342-60.PDF — fetch failed",
+      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20DISCOS%20REQUEST%20BY%20XWDISCOS%20FOR%20ADJ%202ND%20QUARTER%20OF%20CY%202026%2004-09-2026%2018362-78.PDF — fetch failed",
+      "PDF fetch failed: https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/D-20276-94%20Decision%20FCA%20for%20XW-DISCOs%20August%202026%2007.10.2026.PDF — fetch failed"
+    ]
+  }
+}

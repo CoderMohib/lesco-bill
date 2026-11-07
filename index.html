@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="LESCO electricity bill estimator — protected, unprotected & lifeline A-1 tariffs (estimate only)."
+    />
+    <title>LESCO Bill Estimator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <header class="site-header">
+      <p class="brand">LESCO Bill Estimator</p>
+      <p class="tagline">Unofficial estimate · S.R.O. 279(I)/2026 rates · Not LESCO</p>
+      <p class="rates-status" id="rates-status">Loading rates…</p>
+    </header>
+
+    <main class="layout">
+      <form id="calc-form" class="panel" novalidate>
+        <section class="block">
+          <h2>Connection</h2>
+          <label>
+            Consumer category
+            <select id="category" name="category">
+              <option value="a1" selected>A-1 Domestic / residential</option>
+              <option value="a2">A-2 Commercial</option>
+              <option value="a3">A-3 General services</option>
+              <option value="b1">B-1 Industrial (≤25 kW)</option>
+              <option value="b2">B-2 Industrial (25–500 kW)</option>
+            </select>
+          </label>
+
+          <div id="a1-status-wrap" class="status-cards">
+            <p class="field-label">Domestic status <span class="req">(required for A-1)</span></p>
+            <div class="card-toggle" role="radiogroup" aria-label="Domestic tariff status">
+              <label class="status-option">
+                <input type="radio" name="a1Status" value="protected" checked />
+                <span>
+                  <strong>Protected</strong>
+                  <small>≤200 units · progressive slabs (one previous slab)</small>
+                </span>
+              </label>
+              <label class="status-option">
+                <input type="radio" name="a1Status" value="unprotected" />
+                <span>
+                  <strong>Unprotected</strong>
+                  <small>All units at the slab you land in · no progressive benefit</small>
+                </span>
+              </label>
+              <label class="status-option">
+                <input type="radio" name="a1Status" value="lifeline" />
+                <span>
+                  <strong>Lifeline</strong>
+                  <small>≤100 units · cheapest band · no slab benefit</small>
+                </span>
+              </label>
+            </div>
+            <p class="hint" id="status-hint">
+              Protected: first 100 units @ Rs.10.54, next up to 200 @ Rs.13.01. Eligibility also needs a
+              history of ≤200 units/month — check your bill tariff code.
+            </p>
+          </div>
+
+          <div class="row">
+            <label>
+              Meter type
+              <select id="meterMode" name="meterMode">
+                <option value="regular" selected>Regular (non-ToU)</option>
+                <option value="tou">Time-of-Use (ToU)</option>
+                <option value="prepaid">Prepaid</option>
+              </select>
+            </label>
+            <label id="phase-wrap">
+              Phase
+              <select id="phase" name="phase">
+                <option value="single" selected>Single-phase</option>
+                <option value="three">Three-phase</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              Sanctioned load (kW)
+              <input type="number" id="sanctionedLoad" name="sanctionedLoad" min="0" step="0.1" value="2" />
+            </label>
+            <label id="mdi-wrap" class="hidden">
+              MDI (kW)
+              <input type="number" id="mdi" name="mdi" min="0" step="0.1" value="0" />
+            </label>
+          </div>
+
+          <label id="a2-band-wrap" class="hidden">
+            Commercial band
+            <select id="a2Band" name="a2Band">
+              <option value="below5">Below 5 kW</option>
+              <option value="above5">5 kW and above</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="block">
+          <h2>Usage</h2>
+          <div class="card-toggle compact" role="radiogroup" aria-label="How to enter units">
+            <label class="status-option">
+              <input type="radio" name="unitsMode" value="direct" checked />
+              <span><strong>Units used</strong><small>Enter kWh for the month</small></span>
+            </label>
+            <label class="status-option">
+              <input type="radio" name="unitsMode" value="readings" />
+              <span><strong>Meter readings</strong><small>Previous &amp; current</small></span>
+            </label>
+          </div>
+
+          <div id="direct-units">
+            <label>
+              Units consumed (kWh)
+              <input type="number" id="units" name="units" min="0" step="1" value="150" />
+            </label>
+          </div>
+
+          <div id="reading-units" class="hidden">
+            <div class="row">
+              <label>
+                Previous reading
+                <input type="number" id="previousReading" name="previousReading" min="0" step="1" value="1200" />
+              </label>
+              <label>
+                Current reading
+                <input type="number" id="currentReading" name="currentReading" min="0" step="1" value="1350" />
+              </label>
+            </div>
+            <label>
+              Meter multiplier
+              <input type="number" id="meterMultiplier" name="meterMultiplier" min="1" step="1" value="1" />
+            </label>
+            <p class="hint" id="delta-hint">Units = (current − previous) × multiplier</p>
+          </div>
+
+          <div id="tou-units" class="hidden">
+            <div class="row">
+              <label>
+                Peak units
+                <input type="number" id="peakUnits" name="peakUnits" min="0" step="1" value="100" />
+              </label>
+              <label>
+                Off-peak units
+                <input type="number" id="offPeakUnits" name="offPeakUnits" min="0" step="1" value="200" />
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Bill month &amp; adjustments</h2>
+          <label>
+            Bill month
+            <select id="billMonth" name="billMonth">
+              <option value="2026-11" selected>November 2026</option>
+              <option value="2026-10">October 2026</option>
+              <option value="2026-09">September 2026</option>
+            </select>
+          </label>
+
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" id="applyQTA" checked /> QTA</label>
+            <label class="toggle"><input type="checkbox" id="applyFCA" checked /> FCA / FPA</label>
+            <label class="toggle"><input type="checkbox" id="applyFC" checked /> FC surcharge</label>
+            <label class="toggle"><input type="checkbox" id="applyED" checked /> Punjab ED</label>
+            <label class="toggle"><input type="checkbox" id="applyGST" checked /> GST 18%</label>
+            <label class="toggle"><input type="checkbox" id="applyWHT" checked /> Sec. 235 tax</label>
+          </div>
+
+          <div class="row">
+            <label>
+              FCA override (Rs/kWh)
+              <input type="number" id="fcaOverride" name="fcaOverride" step="0.0001" placeholder="blank = auto" />
+            </label>
+            <label>
+              FC override (Rs/kWh)
+              <input type="number" id="fcOverride" name="fcOverride" step="0.01" placeholder="default 0.43" />
+            </label>
+          </div>
+
+          <label class="toggle atl">
+            <input type="checkbox" id="onATL" checked />
+            On Active Taxpayers List (ATL) — domestic Sec. 235 nil if checked
+          </label>
+        </section>
+
+        <section class="block collapsible">
+          <details>
+            <summary>Extra bill lines (optional)</summary>
+            <div class="row">
+              <label>Arrears <input type="number" id="arrears" step="0.01" value="0" /></label>
+              <label>Meter rent <input type="number" id="meterRent" step="0.01" value="0" /></label>
+            </div>
+            <div class="row">
+              <label>Instalment <input type="number" id="instalment" step="0.01" value="0" /></label>
+              <label>Late payment <input type="number" id="lps" step="0.01" value="0" /></label>
+            </div>
+            <label>Other (+/−) <input type="number" id="other" step="0.01" value="0" /></label>
+          </details>
+        </section>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Estimate bill</button>
+          <button type="button" class="btn ghost" id="reset-btn">Reset</button>
+        </div>
+      </form>
+
+      <aside class="panel result" id="result" aria-live="polite">
+        <h2>Estimate</h2>
+        <p class="muted">Fill the form and tap Estimate.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Estimate only — based on notified GoP consumer-end rates and configurable adjustments. Your real LESCO
+        bill may differ. Not affiliated with LESCO / NEPRA / PITC.
+      </p>
+    </footer>
+
+    <script src="js/calc.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
